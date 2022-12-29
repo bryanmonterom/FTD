@@ -1,0 +1,112 @@
+﻿@model AdminLteMvc.Models.FlowSteps
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Estas seguro que deseas eliminar este elemento?</h3>
+<div>
+    <h4>Pasos de los FLujos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AttachmentType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttachmentType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Identification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Identification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlowType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlowType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StepNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StepNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StepName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StepName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAttachmentNeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAttachmentNeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMatrixNeeded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsMatrixNeeded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsTransferNeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsTransferNeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSupervisorNeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSupervisorNeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsBuyersBlocker)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsBuyersBlocker)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

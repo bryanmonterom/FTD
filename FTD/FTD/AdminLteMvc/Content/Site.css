@@ -1,0 +1,151 @@
+﻿body {
+    background-color: white;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+@media screen and (max-width: 700px) {
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.loginForm {
+    margin-top: 20px ;
+    background-color: white !important;
+    border: solid 1px black;
+    border-radius:3px;
+    opacity:0.1 !important;
+}
+.loginForm :hover{
+   
+    opacity: 0.6;
+}
+
+
+.colForLogin {
+    background-color: red !important;
+    border: solid 1px black;
+    border-radius: 3px;
+    opacity: 0.1 !important;
+}
+
+.borderDiv {
+    border: solid black 1px;
+    margin-top: 40px;
+    background-color: white;
+    border-radius: 4px 4px;
+    opacity:0.8;
+}
+
+    .borderDiv:hover {
+        opacity: 1;
+        font-family: sans-serif 15px;
+        -webkit-transition: all .3s ease-in;
+        -moz-transition: all .3s ease-in;
+        -ms-transition: all .3s ease-in;
+        -o-transition: all .3s ease-in;
+        transition: all .3s ease-in;
+        transform: scale(1.15);
+        -ms-transform: scale(1.15); /* IE 9 */
+        -webkit-transform: scale(1.15); /* Safari and Chrome */
+        ;
+    }
+
+.Approved {
+    font-size: 12px;
+    color: 	#187A00;
+}
+
+.TitleForFlow {
+    font-weight: bold;
+    font-size: 14px;
+}
+.Pending {
+    font-size: 14px;
+    color: 	goldenrod;
+}
+
+.Rejected {
+    font-size: 14px;
+    color: 	red;
+}
+
+.ForHistory {
+    border: 1px solid;
+    width: 200px;
+    color: darkgrey;
+    font: bold 12px sans-serif;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    padding-left: 5px;
+    font-family: sans-serif;
+}
+.HasApproved {
+    border-color: #2AD200;
+}
+
+.HasRejected {
+    border-color: #CA4949;
+}
+
+.HasPending {
+    border-color: #E8C900;
+}
+
+.ForHistory:hover {
+    opacity: 0.53;
+}
+
+.ApprovedNoBold {
+    color:#2AD200
+}
+
+.PendingNoBold {
+    color:#E8C900
+}
+
+.RejectedNoBold {
+    color: #CA4949;
+}
+
+
+.Attachment:hover {
+    color: #424242;
+    -webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+    opacity: 1;
+    transform: scale(1.15);
+    -ms-transform: scale(1.15); /* IE 9 */
+    -webkit-transform: scale(1.15); /* Safari and Chrome */;
+  
+}
+.Attachment {
+    width: 25%;
+    height: 50%;
+}

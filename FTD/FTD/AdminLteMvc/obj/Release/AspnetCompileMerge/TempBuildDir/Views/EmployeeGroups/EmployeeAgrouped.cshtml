@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<AdminLteMvc.Models.EmployeeGroups>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/Content/Site.css" rel="stylesheet" />
+<link href="/Content/bootstrap.css" rel="stylesheet" />
+@{
+    Layout = null;
+}
+
+<div>
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>
+                Empleado
+            </th>
+            <th>
+                Grupo
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Employee.Name
+                </td>
+                <td>
+                    @item.Group.Name
+                </td>
+                <td>
+                    @Html.ActionLink("Remover", "Delete", "EmployeeGroups", new { @id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

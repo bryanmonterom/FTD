@@ -1,0 +1,162 @@
+﻿@model AdminLteMvc.Models.Request
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+
+<div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <h4>Solicitud</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FlowSteps.StepName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.FlowSteps.StepName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FlowType.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.FlowType.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Requestor.Identification)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Requestor.Identification)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Status.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.To.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.To.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IdFrom)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.From.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Identifier)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Identifier)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Date)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Subject)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Subject)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Message)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Message)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsCompleted)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IsCompleted)
+                    </dd>
+
+                </dl>
+
+                <div class="form-group form-inline">
+                    <div class="form-group">
+                        <a href="@Url.Action("Index","RequestHistories", new {@request= Model.Id, @Approvals = 0, @IdStatus = (int)AdminLteMvc.Utilities.Status.Pending })" class="btn btn-default">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Volver a Aprobaciones</span>
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        <a href="@Url.Action("Index", "Attachments", new {@IdRequestd = Model.Id})" class="btn btn-default">
+                            <i class="fa fa-book"></i>
+                            <span>Ver archivos existentes</span>
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        <a href="@Url.Action("Generate", "Reports", new {@id = Model.Id})" class="btn btn-default">
+                            <i class="fa fa-line-chart"></i>
+                            <span>Generar Reporte</span>
+                        </a>
+                    </div>
+                    
+
+                </div>
+                
+                <p>
+
+                    @Html.ActionLink("Editar", "Edit", new {id = Model.Id}, htmlAttributes: new {@class = "btn btn-success"}) |
+                    @Html.ActionLink("Volver a la Lista", "Index", null, new {@class = "btn btn-primary"})
+                </p>
+
+            </div>
+            <div class="col-lg-3">
+                <h4>Historico de Aprobaciones</h4>
+                <hr />
+                <div id="divPartialView"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+            var empgId = @Html.DisplayFor(model => model.Id);
+            $.ajax({
+                url: "@Url.Action("GetFlowHistory", "Request")",
+                data: { id: empgId },
+                type: "Get",
+                dataType: "html",
+                cache: false,
+                success: function(data) {
+                    $("#divPartialView").html(data);
+                }
+            });
+        });
+
+
+    </script>
+}

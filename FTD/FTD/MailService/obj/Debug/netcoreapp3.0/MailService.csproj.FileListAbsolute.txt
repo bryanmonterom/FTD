@@ -1,0 +1,25 @@
+G:\Mi unidad\Tesis\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.exe
+G:\Mi unidad\Tesis\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.deps.json
+G:\Mi unidad\Tesis\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.runtimeconfig.json
+G:\Mi unidad\Tesis\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.runtimeconfig.dev.json
+G:\Mi unidad\Tesis\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.dll
+G:\Mi unidad\Tesis\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.pdb
+G:\Mi unidad\Tesis\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.csprojAssemblyReference.cache
+G:\Mi unidad\Tesis\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.AssemblyInfoInputs.cache
+G:\Mi unidad\Tesis\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.AssemblyInfo.cs
+G:\Mi unidad\Tesis\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.dll
+G:\Mi unidad\Tesis\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.pdb
+C:\Users\Computer\Desktop\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.exe
+C:\Users\Computer\Desktop\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.deps.json
+C:\Users\Computer\Desktop\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.runtimeconfig.json
+C:\Users\Computer\Desktop\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.runtimeconfig.dev.json
+C:\Users\Computer\Desktop\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.dll
+C:\Users\Computer\Desktop\FTD\MailService\bin\Debug\netcoreapp3.0\MailService.pdb
+C:\Users\Computer\Desktop\FTD\MailService\bin\Debug\netcoreapp3.0\PagedList.dll
+C:\Users\Computer\Desktop\FTD\MailService\bin\Debug\netcoreapp3.0\PagedList.Mvc.dll
+C:\Users\Computer\Desktop\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.csprojAssemblyReference.cache
+C:\Users\Computer\Desktop\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.AssemblyInfoInputs.cache
+C:\Users\Computer\Desktop\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.AssemblyInfo.cs
+C:\Users\Computer\Desktop\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.csproj.CopyComplete
+C:\Users\Computer\Desktop\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.dll
+C:\Users\Computer\Desktop\FTD\MailService\obj\Debug\netcoreapp3.0\MailService.pdb

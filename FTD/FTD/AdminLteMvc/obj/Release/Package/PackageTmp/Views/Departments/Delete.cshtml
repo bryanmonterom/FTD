@@ -1,0 +1,31 @@
+﻿@model AdminLteMvc.Models.Department
+
+@{
+    ViewBag.Title = "Eliminar - Departamentos";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Estas seguro que deseas eliminar este elemento?</h3>
+<div>
+    <h4>Departamentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

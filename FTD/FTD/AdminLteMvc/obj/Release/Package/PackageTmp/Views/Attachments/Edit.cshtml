@@ -1,0 +1,52 @@
+﻿@model AdminLteMvc.Models.FileUploader
+
+@{
+    ViewBag.Title = "Editar Archivos Adjuntos";
+
+}
+@using (Html.BeginForm("Edit", "Attachments", new { @id = Model.Id }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+        <div class="row">
+            <hr />
+            <div class="col-lg-8">
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.IdFile)
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.files, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.files, "", new { @type = "file" })
+                            @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Cargar archivos" class="btn btn-success" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10 text-success">
+                            @ViewBag.FileStatus
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-horizontal">
+                    @Html.ActionLink("Ver archivos existentes", "Index", new { @IdRequest = ViewBag.IdFile }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+            </div>
+        </div>
+    </div>
+
+}
+
+

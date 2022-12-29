@@ -1,0 +1,91 @@
+﻿@model AdminLteMvc.Models.FlowSteps
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FlowSteps</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AttachmentType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttachmentType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Identification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Identification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlowType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlowType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StepNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StepNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StepName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StepName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAttachmentNeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAttachmentNeed)
+        </dd>
+
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSupervisorNeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSupervisorNeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsBuyersBlocker)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsBuyersBlocker)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

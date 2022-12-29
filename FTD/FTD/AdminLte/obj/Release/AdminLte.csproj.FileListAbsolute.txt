@@ -1,0 +1,18 @@
+G:\Mi unidad\Tesis\FTD\AdminLte\bin\Release\AdminLte.XML
+G:\Mi unidad\Tesis\FTD\AdminLte\bin\Release\AdminLte.dll
+G:\Mi unidad\Tesis\FTD\AdminLte\bin\Release\AdminLte.pdb
+G:\Mi unidad\Tesis\FTD\AdminLte\obj\Release\AdminLte.csprojAssemblyReference.cache
+G:\Mi unidad\Tesis\FTD\AdminLte\obj\Release\AdminLte.dll
+G:\Mi unidad\Tesis\FTD\AdminLte\obj\Release\AdminLte.pdb
+C:\Users\Computer\Desktop\FTD\AdminLte\bin\Release\AdminLte.XML
+C:\Users\Computer\Desktop\FTD\AdminLte\bin\Release\AdminLte.dll
+C:\Users\Computer\Desktop\FTD\AdminLte\bin\Release\AdminLte.pdb
+C:\Users\Computer\Desktop\FTD\AdminLte\obj\Release\AdminLte.csprojAssemblyReference.cache
+C:\Users\Computer\Desktop\FTD\AdminLte\obj\Release\AdminLte.dll
+C:\Users\Computer\Desktop\FTD\AdminLte\obj\Release\AdminLte.pdb
+C:\Users\Computer\Desktop\FTD\AdminLte\bin\Release\PagedList.dll
+C:\Users\Computer\Desktop\FTD\AdminLte\bin\Release\PagedList.Mvc.dll
+C:\Users\Computer\Desktop\FTD\AdminLte\bin\Release\PagedList.xml
+C:\Users\Computer\Desktop\FTD\AdminLte\bin\Release\PagedList.Mvc.xml
+C:\Users\Computer\Desktop\FTD\AdminLte\obj\Release\AdminLte.csproj.CopyComplete
+C:\Users\Computer\Desktop\FTD\AdminLte\obj\Release\AdminLte.csproj.CoreCompileInputs.cache

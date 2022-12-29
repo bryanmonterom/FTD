@@ -1,0 +1,99 @@
+﻿@model PagedList.IPagedList<AdminLteMvc.Models.Employee>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Empleados";
+}
+<div class="container-fluid">
+<p>
+    @Html.ActionLink("Crear nuevo", "Create", null, htmlAttributes: new { @class = "btn btn-primary" })
+</p>
+<div class="form-group form-inline">
+    <div class="form-group">
+        <div>
+            <p class="text-info">Id de Red</p>
+        </div>
+        <input type="text" placeholder="" id="card" name="card" class="form-control" />
+    </div>
+    <div class="form-group">
+        <div>
+            <p class="text-info">Nombre</p>
+        </div>
+        <input type="text" placeholder="" id="name" name="name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <div>
+            <p class="text-info">Acciones</p>
+        </div>
+        <button type="button" class="btn btn-default" aria-label="Left Align" onclick="Filter()">
+            <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+            Filtrar
+        </button>
+        @Html.ActionLink("Limpiar Filtro", "Index", "Attachments", htmlAttributes: new { @class = "btn btn-default" })
+
+    </div>
+
+</div>
+
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Identification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = @item.Id }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Grupos", "Create", "EmployeeGroups", new { id = item.Id }, new { @class = "btn btn-default" }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = @item.Id }, htmlAttributes: new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+@section scripts
+{
+    <script>
+        function Filter()
+        {
+            //  $("#btnFilter").click(function() {
+            $.ajax({
+                url: "@Url.Action("Index", "Employees")",
+                type: "Get",
+                data: { name: $("#name").val(),card: $("#card").val() },
+                cache: false,
+                dataType: "html",
+                success: function(data) {
+                    $("body").html(data);
+                }
+            });
+            //});
+        }
+
+    </script>
+}

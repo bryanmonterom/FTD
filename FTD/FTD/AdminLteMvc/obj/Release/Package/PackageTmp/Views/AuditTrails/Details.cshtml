@@ -1,0 +1,50 @@
+﻿@model AdminLteMvc.Models.AuditTrail
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<div class="container-fluid">
+
+    <div>
+        <h4>Log de Transacciones</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PerformedBy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PerformedBy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Action)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Action)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ActionMessage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ActionMessage)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-primary" })
+    </p>
+</div>

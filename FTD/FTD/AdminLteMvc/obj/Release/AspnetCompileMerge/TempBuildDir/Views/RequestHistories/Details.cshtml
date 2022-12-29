@@ -1,0 +1,66 @@
+﻿@model AdminLteMvc.Models.RequestHistory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RequestHistory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Identification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Identification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlowSteps.StepName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlowSteps.StepName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Request.Identifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Request.Identifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateApproval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateApproval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

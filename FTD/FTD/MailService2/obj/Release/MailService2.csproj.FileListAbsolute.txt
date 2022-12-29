@@ -1,0 +1,12 @@
+C:\Users\Computer\Desktop\FTD\MailService2\bin\Release\MailService2.exe.config
+C:\Users\Computer\Desktop\FTD\MailService2\bin\Release\MailService2.exe
+C:\Users\Computer\Desktop\FTD\MailService2\bin\Release\MailService2.pdb
+C:\Users\Computer\Desktop\FTD\MailService2\obj\Release\MailService2.exe
+C:\Users\Computer\Desktop\FTD\MailService2\obj\Release\MailService2.pdb
+C:\Users\Computer\Desktop\FTD\MailService2\bin\Release\PagedList.dll
+C:\Users\Computer\Desktop\FTD\MailService2\bin\Release\PagedList.Mvc.dll
+C:\Users\Computer\Desktop\FTD\MailService2\bin\Release\PagedList.xml
+C:\Users\Computer\Desktop\FTD\MailService2\bin\Release\PagedList.Mvc.xml
+C:\Users\Computer\Desktop\FTD\MailService2\obj\Release\MailService2.csprojAssemblyReference.cache
+C:\Users\Computer\Desktop\FTD\MailService2\obj\Release\MailService2.csproj.CopyComplete
+C:\Users\Computer\Desktop\FTD\MailService2\obj\Release\MailService2.csproj.CoreCompileInputs.cache

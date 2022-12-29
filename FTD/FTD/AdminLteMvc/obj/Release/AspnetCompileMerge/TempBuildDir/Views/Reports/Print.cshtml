@@ -1,0 +1,57 @@
+﻿
+@Scripts.Render("~/bundles/globalize")
+@Scripts.Render("~/bundles/knockout")
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+<!-- Font Awesome Icons -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<!-- Ionicons -->
+<link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+<!-- Morris chart -->
+<link href="~/Scripts/AdminLTE/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+<!-- jvectormap -->
+<link href="~/Scripts/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+<!-- Daterange picker -->
+<link href="~/Scripts/AdminLTE/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+<!-- Theme style -->
+<link href="~/Content/AdminLTE/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/sweetalert/sweetalert.css" rel="stylesheet" />
+<script src="~/Content/sweetalert/sweetalert.min.js"></script>
+
+@*TODO: AdminLTE Skins. Choose a skin from the css/skins
+    folder instead of downloading all of them to reduce the load.*@
+<link href="~/Content/AdminLTE/skins/skin-blue.css" rel="stylesheet" type="text/css" />
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+<![endif]-->
+
+@using DevExpress.Web.Mvc.UI
+@model DevExpress.XtraReports.UI.XtraReport
+
+@{
+    ViewBag.Title = "Print";
+    Layout = null;
+}
+
+<div class="box box-info">
+<div class="box-header with-border">
+    <h2 class="box-title">Reporte</h2>
+</div>
+<div class="box-body">
+    <div class="container-fluid">
+        @Html.DevExpress().GetStyleSheets(new StyleSheet { ExtensionType = ExtensionType.WebDocumentViewer })
+        @Html.DevExpress().GetScripts(new Script { ExtensionType = ExtensionType.WebDocumentViewer })
+
+
+        @Html.DevExpress().WebDocumentViewer(settings =>
+        {
+            settings.Name = "documentViewer";
+        }).Bind(Model).GetHtml()
+    </div>
+</div></div>

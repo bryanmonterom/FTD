@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AdminLteMvc.Models.Attachments">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAAAAAAAAAAAAAAYAAAAAgAAAAEAQCAgAAAA=</HashCode>
+      <FileName>Models\Attachments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.AttachmentType">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAIAAEAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AttachmentType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.AuditTrail">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgAAAAAAAAAAAACAAAAAAAAABAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\AuditTrail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.Department">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgAAAAAAAAAAAAAQACAAAAAAAAAAAQBAAAAA=</HashCode>
+      <FileName>Models\Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.Employee">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAABiCAJAAAAAAAAAAYAGAAAgAAAAAgQAAhAAAA=</HashCode>
+      <FileName>Models\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.EmployeeGroups">
+    <Position X="11.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAEAAAAAAAAAAACAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EmployeeGroups.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.FileUploader">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAIAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\FileUploader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.FlowSteps">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARCAFAAgAQAEQEAEAAIAEIICAAAIAACAAAQgBAIEAA=</HashCode>
+      <FileName>Models\FlowSteps.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.FlowType">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAIAAAAAAAAAAQAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\FlowType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.Group">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAIAAAAAAAAAAYAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Models\Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.ReasonToReject">
+    <Position X="11.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAIAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ReasonToReject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.RejectReasons">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RejectReasons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.Request">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACABAFgAAIAAEAEIAAAAACAAAIABABAAAAcQAAAAE=</HashCode>
+      <FileName>Models\Request.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.RequestHistory">
+    <Position X="13.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAEAQAIAAEAAAAAAAAACAAAoBAAAAAACAAAIQA=</HashCode>
+      <FileName>Models\RequestHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.RequestType">
+    <Position X="8.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\RequestType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminLteMvc.Models.Status">
+    <Position X="3" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\Status.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ADVP.Utilities.Results">
+    <Position X="1.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Results.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

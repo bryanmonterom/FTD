@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AdminLteMvc.Models.AttachmentType>
+
+@{
+    ViewBag.Title = "Tipos de Adjuntos";
+}
+<div class="container-fluid">
+
+
+    <p>
+        @Html.ActionLink("Crear nuevo", "Create", null, htmlAttributes: new { @class = "btn btn-primary" })
+    </p>
+    <table class="table table-hover table-striped table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = @item.Id }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = @item.Id }, htmlAttributes: new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>

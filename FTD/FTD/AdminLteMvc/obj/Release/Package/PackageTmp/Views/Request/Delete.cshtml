@@ -1,0 +1,119 @@
+﻿@model AdminLteMvc.Models.Request
+
+@{
+    ViewBag.Title = "Eliminar Solicitudes";
+}
+
+
+<h3>Estas seguro que deseas eliminar este elemento?</h3>
+<div>
+    <h4>Solicitudes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FlowSteps.StepName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlowSteps.StepName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlowType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlowType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Requestor.Identification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Requestor.Identification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.To.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.To.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Identifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Identifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsCompleted)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

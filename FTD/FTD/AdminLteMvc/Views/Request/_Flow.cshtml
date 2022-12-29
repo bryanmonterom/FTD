@@ -1,0 +1,86 @@
+﻿
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/Content/Site.css" rel="stylesheet" />
+<link href="/Content/bootstrap.css" rel="stylesheet" />
+
+
+@using ADVP.Utilities
+@model IEnumerable<AdminLteMvc.Models.RequestHistory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    switch (item.IdStatus)
+    {
+        case (int)AdminLteMvc.Utilities.Status.Approved:
+            <div class="ForHistory HasApproved">
+                <label class="Approved TitleForFlow ">@Html.DisplayFor(modelItem => item.Status.Name)</label>
+                <i class="fa fa-check Aprobado "></i>
+                <label class="ApprovedNoBold">@Html.DisplayFor(modelItem => item.DateApproval)</label>
+                <br />
+                <label class="ApprovedNoBold"> @Html.DisplayFor(modelItem => item.FlowSteps.StepName)</label>
+                <br />
+                <label class="ApprovedNoBold">@Html.DisplayFor(modelItem => item.Comments)</label>
+                <br />
+                <label class="ApprovedNoBold">@Html.DisplayFor(modelItem => item.Employee.Name)</label>
+                <br />
+            </div>
+            break;
+        case (int)AdminLteMvc.Utilities.Status.Rejected:
+            <div class="ForHistory HasRejected">
+                <label class="Rejected TitleForFlow ">@Html.DisplayFor(modelItem => item.Status.Name)</label>
+                <i class="fa fa-times Rechazado "></i>
+                <br />
+                <label class="RejectedNoBold">@Html.DisplayFor(modelItem => item.DateApproval)</label>
+                <br />
+                <label class="RejectedNoBold"> @Html.DisplayFor(modelItem => item.FlowSteps.StepName)</label>
+                <br />
+                <label class="RejectedNoBold">@Html.DisplayFor(modelItem => item.Comments)</label>
+                <br />
+                <label class="RejectedNoBold">@Html.DisplayFor(modelItem => item.Employee.Name)</label>
+                <br />
+            </div>
+            break;
+        case (int)AdminLteMvc.Utilities.Status.Pending:
+            <div class="ForHistory HasPending">
+                <label class="Pending TitleForFlow ">@Html.DisplayFor(modelItem => item.Status.Name)</label>
+                <i class="fa fa-warning Pendiente "></i>
+                <br />
+                <label class="PendingNoBold">@Html.DisplayFor(modelItem => item.DateApproval)</label>
+                <br />
+                <label class="PendingNoBold"> @Html.DisplayFor(modelItem => item.FlowSteps.StepName)</label>
+                <br />
+                <label class="PendingNoBold">@Html.DisplayFor(modelItem => item.Comments)</label>
+                <br />
+                <label class="PendingNoBold">@Html.DisplayFor(modelItem => item.Employee.Name)</label>
+                <br />
+            </div>
+            break;
+        case (int)AdminLteMvc.Utilities.Status.Canceled:
+            <div class="ForHistory HasRejected">
+                <label class="Rejected TitleForFlow ">@Html.DisplayFor(modelItem => item.Status.Name)</label>
+                <i class="fa fa-times Cancelado "></i>
+                <br />
+                <label class="RejectedNoBold">@Html.DisplayFor(modelItem => item.DateApproval)</label>
+                <br />
+                <label class="RejectedNoBold"> @Html.DisplayFor(modelItem => item.FlowSteps.StepName)</label>
+                <br />
+                <label class="RejectedNoBold">@Html.DisplayFor(modelItem => item.Comments)</label>
+                <br />
+                <label class="RejectedNoBold">@Html.DisplayFor(modelItem => item.Employee.Name)</label>
+                <br />
+            </div>
+            break;
+        default:
+            break;
+    }
+
+
+
+
+}
+

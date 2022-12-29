@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Página Principal";
+}
+
+<div class="jumbotron">
+    <div class="container-fluid">
+    <h1>FTI Digital</h1>
+    <p>¡Bienvenido @User.Identity.Name!, ¿Que deseas hacer hoy?</p>
+        <p><a href="@Url.Action("Create", "Request")" class="btn btn-primary btn-lg">Crea una nueva solicitud <i class="fa fa-book"></i></a></p>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <h2>Solicitudes</h2>
+        <hr/>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text" >Creadas por mi</span>
+                    <span class="info-box-number" id="spnByMe">1,410</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-building"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Creadas por mi departamento</span>
+                    <span class="info-box-number" id="spnMyDepartment">410</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-check-circle"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Solicitudes completadas</span>
+                    <span class="info-box-number" id="spnCompleted">13,648</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-clock-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Solicitudes pendientes</span>
+                    <span class="info-box-number" id="spnPending">93,139</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+    </div>
+</div>

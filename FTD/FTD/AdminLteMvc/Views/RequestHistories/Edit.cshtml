@@ -1,0 +1,110 @@
+﻿@model AdminLteMvc.Models.RequestHistory
+
+@{
+    ViewBag.Title = "Aprobaciones";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Historico de Aprobaciones</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.IdFlowSteps)
+        @Html.HiddenFor(model => model.DateApproval)
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdRequest, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdRequest", null, htmlAttributes: new { @class = "form-control" , @readonly ="readonly"})
+                @Html.ValidationMessageFor(model => model.IdRequest, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdEmployee, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdEmployee", null, htmlAttributes: new { @class = "form-control", @readonly="readonly" })
+                @Html.ValidationMessageFor(model => model.IdEmployee, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdStatus", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.IdStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @{
+            var IsRejected = ViewBag.IsRejected;
+            if (!IsRejected)
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdRejectReasons, htmlAttributes: new { @class = "control-label col-md-2", @disabled = "disabled" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdRejectReasons", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                        @Html.ValidationMessageFor(model => model.IdStatus, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdRejectReasons, htmlAttributes: new { @class = "control-label col-md-2", @disabled = "disabled" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdRejectReasons", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdStatus, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            }
+        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Aprobar" class="btn btn-success" id="btnSubmit" name="btnSubmit" />
+            </div>
+        </div>
+    </div>
+}
+    <div>
+        @*@Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-primary" })*@
+        @Html.ActionLink("Volver a la Lista", "Index", new { approvals = 0, IdStatus = (int)AdminLteMvc.Utilities.Status.Pending }, new { @class = "btn btn-primary" })
+
+    </div>
+
+@section Scripts {
+
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function() {
+            $("#Comments").val(' ');
+
+            if ($("#IdStatus").val() == @((int)AdminLteMvc.Utilities.Status.Rejected)) {
+                $("#btnSubmit").removeClass("btn-success");
+                $("#btnSubmit").addClass("btn-danger");
+                $("#btnSubmit").val("Rechazar");
+            }
+        });
+    </script>
+
+
+}

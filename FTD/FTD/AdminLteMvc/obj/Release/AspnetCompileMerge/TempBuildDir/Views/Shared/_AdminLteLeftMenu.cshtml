@@ -1,0 +1,211 @@
+﻿@using Microsoft.AspNet.Identity
+@* 
+ This partial controls the left menu of the AdminLTE dashboard and is called automatically by _AdminLteLayout
+    This is where you can add, modify, or remove navigation options in your app
+    TODO: This preserves the links as-is for the demo, which lead to broken pages!
+    It's up to you to make sure these links either get deleted or lead somewhere REAL!
+*@
+
+
+@{
+    Layout = null;
+}
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left info">
+                <p id="lblUsername">
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                <input type="hidden" id="username" name="username" value="@User.Identity.GetUserName()" />             
+                </p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <p>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm"}))
+                    {
+                        @Html.AntiForgeryToken()
+                     <a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesion</a>
+                    }
+                </p>
+            </div>
+        </div>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">NAVEGACION PRINCIPAL</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-home"></i> <span>Página Principal</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index","Home")"><i class="fa fa-circle-o"></i>Inicio</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-book"></i>
+                    <span>Adjuntos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=@Url.Action("Index","Attachments")><i class="fa fa-list"></i> Listado</a></li>
+                    <li><a href="@Url.Action("Create","Attachments")"><i class="fa fa-plus"></i> Crear nuevo</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa  fa-check-circle"></i>
+                    <span>Aprobaciones</span>
+                    <span id="lblTotalApprovals" class="label label-danger pull-right">0</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="@Url.Action("Index","RequestHistories", new {approvals=0, IdStatus = (int)AdminLteMvc.Utilities.Status.Pending })">
+                            <i class="fa fa-circle-o"></i> Mis aprobaciones
+                            <span id="lblAllApprovals" class="label label-danger pull-right">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","RequestHistories", new {@approvals=1, IdStatus = (int)AdminLteMvc.Utilities.Status.Pending })">
+                            <i class="fa fa-circle-o">
+                            </i> De mis Grupos
+                            <span id="lblGroupsApprovals" class="label label-success pull-right">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa  fa-line-chart"></i>
+                    <span>Reportes</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=@Url.Action("Requests","Reports")><i class="fa fa-circle"></i>Solicitudes</a></li>
+                    <li><a href=@Url.Action("AuditTrail","Reports")><i class="fa fa-circle"></i>Log de Transacciones</a></li>
+
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-newspaper-o"></i>
+                    <span>Solicitudes</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=@Url.Action("Index","Request")><i class="fa fa-list"></i> Listado</a></li>
+                    <li><a href="@Url.Action("Create","Request")"><i class="fa fa-plus"></i> Crear nuevo</a></li>
+                </ul>
+            </li>
+
+
+            <li class="header">MANTENIMIENTOS</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-building"></i>
+                    <span>Departamentos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=@Url.Action("Index","Departments")><i class="fa fa-list"></i> Listado</a></li>
+                    <li><a href="@Url.Action("Create","Departments")"><i class="fa fa-plus"></i> Crear nuevo</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span>Empleados</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=@Url.Action("Index","Employees")><i class="fa fa-list"></i> Listado</a></li>
+                    <li><a href="@Url.Action("Create","Employees")"><i class="fa fa-plus"></i> Crear nuevo</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-building"></i>
+                    <span>Grupos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=@Url.Action("Index","Groups")><i class="fa fa-list"></i> Listado</a></li>
+                    <li><a href="@Url.Action("Create","Groups")"><i class="fa fa-plus"></i> Crear nuevo</a></li>
+                </ul>
+            </li>
+
+            <li class="header">CONFIGURACIONES</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-toggle-on"></i>
+                    <span>Estados</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index","Status")"><i class="fa fa-list"></i>Listado</a></li>
+                    <li><a href="@Url.Action("Create","Status")"><i class="fa fa-plus"></i>Crear nuevo</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-key"></i>
+                    <span>Log de Transacciones</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index","AuditTrails")"><i class="fa fa-list"></i>Listado</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-arrows-v"></i>
+                    <span>Pasos de Flujos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index","FlowSteps")"><i class="fa fa-list"></i>Listado</a></li>
+                    <li><a href="@Url.Action("Create","FlowSteps")"><i class="fa fa-plus"></i>Crear nuevo</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-paperclip"></i>
+                    <span>Tipos de Adjuntos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index","AttachmentTypes")"><i class="fa fa-list"></i> Listado</a></li>
+                    <li><a href="@Url.Action("Create","AttachmentTypes")"><i class="fa fa-plus"></i> Crear nuevo</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-arrows"></i>
+                    <span>Tipos de Flujos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index","FlowTypes")"><i class="fa fa-list"></i> Listado</a></li>
+                    <li><a href="@Url.Action("Create","FlowTypes")"><i class="fa fa-plus"></i> Crear nuevo</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user-plus"></i>
+                    <span>Usuarios</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index","Account")"><i class="fa fa-list"></i> Listado</a></li>
+                    <li><a href="@Url.Action("Register","Account")"><i class="fa fa-plus"></i> Crear nuevo</a></li>
+                </ul>
+            </li>
+
+
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

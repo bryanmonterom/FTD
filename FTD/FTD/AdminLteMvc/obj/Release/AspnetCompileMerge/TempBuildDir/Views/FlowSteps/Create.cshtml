@@ -1,0 +1,278 @@
+﻿@model AdminLteMvc.Models.FlowSteps
+
+@{
+    ViewBag.Title = "Crear Pasos para los flujos";
+}
+
+<style type="text/css">
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {display:none;}
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+    }
+
+    input[type="checkbox"]:checked + input[type="hidden"] + .slider,
+    input[type="checkbox"]:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input[type="checkbox"]:focus + input[type="hidden"] + .slider,
+    input[type="checkbox"]:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input[type="checkbox"]:checked + input[type="hidden"] + .slider:before,
+    input[type="checkbox"]:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+</style>
+
+
+<div class="container-fluid">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdEmployee, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IdEmployee", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdEmployee, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.StepNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.StepNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.StepNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.StepName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.StepName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.StepName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdFlowType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IdFlowType", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdFlowType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.IsAttachmentNeed, new { @class = "control-label col-md-2" })
+                <label class="switch">
+                    @Html.CheckBoxFor(m => m.IsAttachmentNeed, new { @class = "form-control" })
+                    <div class="slider round">
+                    </div>
+                </label>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdAttachmentType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.DropDownList("IdAttachmentType", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdAttachmentType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                    @Html.LabelFor(m => m.IsSupervisorNeed, new { @class = "control-label col-md-2" })
+                    <label class="switch">
+                        @Html.CheckBoxFor(m => m.IsSupervisorNeed, new { @class = "form-control" })
+                        <div class="slider round">
+                        </div>
+                    </label>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IsBuyersBlocker, new { @class = "control-label col-md-2" })
+                    <label class="switch">
+                        @Html.CheckBoxFor(m => m.IsBuyersBlocker, new { @class = "form-control" })
+                        <div class="slider round">
+                        </div>
+                    </label>
+                </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdGroup, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IdGroup", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdGroup, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                    @Html.LabelFor(m => m.IsRestorePoint, new { @class = "control-label col-md-2" })
+                    <label class="switch">
+                        @Html.CheckBoxFor(m => m.IsRestorePoint, new { @class = "form-control" })
+                        <div class="slider round">
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.SendEmailWhenCompleted, new { @class = "control-label col-md-2" })
+                    <label class="switch">
+                        @Html.CheckBoxFor(m => m.SendEmailWhenCompleted, new { @class = "form-control" })
+                        <div class="slider round">
+                        </div>
+                    </label>
+                </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdGroupToInform, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IdGroupToInform", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdGroupToInform, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.IsBeginPointWhenSupervisor, new { @class = "control-label col-md-2" })
+                <label class="switch">
+                    @Html.CheckBoxFor(m => m.IsBeginPointWhenSupervisor, new { @class = "form-control" })
+                    <div class="slider round">
+                    </div>
+                </label>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Crear" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        $(document).ready(function () {
+            $("#IsAttachmentNeed").change(function () {
+                if ($("#IsAttachmentNeed").is(":checked")) {
+
+                    $('#IsAttachmentNeed').val(true);
+                } else {
+                    $('#IsAttachmentNeed').prop('checked', false);
+
+
+                }
+            });
+
+            $("#IsSupervisorNeed").change(function () {
+                if ($("#IsSupervisorNeed").is(":checked")) {
+
+                    $('#IsSupervisorNeed').val(true);
+                } else {
+                    $('#IsSupervisorNeed').prop('checked', false);
+
+                }
+            });
+
+            $("#IsBuyersBlocker").change(function() {
+                if ($("#IsBuyersBlocker").is(":checked")) {
+
+                    $('#IsBuyersBlocker').val(true);
+                } else {
+                    $('#IsBuyersBlocker').prop('checked', false);
+
+                }
+            });
+
+            $("#IsRestorePoint").change(function () {
+                if ($("#IsRestorePoint").is(":checked")) {
+
+                    $('#IsRestorePoint').val(true);
+                } else {
+                    $('#IsRestorePoint').prop('checked', false);
+
+                }
+            });
+
+
+            $("#SendEmailWhenCompleted").change(function() {
+                if ($("#SendEmailWhenCompleted").is(":checked")) {
+
+                    $('#SendEmailWhenCompleted').val(true);
+                } else {
+                    $('#SendEmailWhenCompleted').prop('checked', false);
+
+                }
+            });
+
+
+            $("#IsBeginPointWhenSupervisor").change(function() {
+                if ($("#IsBeginPointWhenSupervisor").is(":checked")) {
+
+                    $('#IsBeginPointWhenSupervisor').val(true);
+                } else {
+                    $('#IsBeginPointWhenSupervisor').prop('checked', false);
+
+                }
+            });
+        });
+
+     
+
+
+
+        
+    </script>
+}

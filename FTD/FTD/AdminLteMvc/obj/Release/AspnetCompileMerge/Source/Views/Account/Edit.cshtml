@@ -1,0 +1,83 @@
+﻿@model AdminLteMvc.AspNetUsers
+@{
+    ViewBag.Title = "Modificar";
+}
+<div class="container-fluid">
+
+    <h2>Usuarios</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Modificar cuenta</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                <div class="form-inline">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    <input type="button" value="Buscar Empleado" class="btn btn-primary" id="btnValidate" name="btnValidate" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label">Empleado</label>
+            <div class="col-md-10">
+                @Html.DropDownList("Employees", null, new { @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-success" value="Guardar" />
+            </div>
+        </div>
+
+        @Html.ActionLink("Volver a la Lista", "Index", "Account", htmlAttributes: new { @class = "btn btn-primary" })
+
+}
+</div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+
+            <script>
+        $("#btnValidate").click(function (event) {
+            var empgCard = $('#UserName').val();
+            $.ajax({
+                url: "@Url.Action("getEmployee", "Account")",
+                data: { EmployeeId: empgCard },
+                type: "Get",
+                cache: false,
+                dataType: "json",
+                contentType: 'application/json;',
+                processData: true,
+                success: function (response) {
+                    $("#Employees").val(response.Id);
+                    $("#Email").val(response.Email);
+
+
+                },
+                error: function (error) {
+                    alert('Not found');
+                    $("#Employees").val(0);
+                    $("#Email").val(0);
+                }
+
+            });
+        });
+            </script>
+
+        }

@@ -1,0 +1,84 @@
+﻿@model PagedList.IPagedList < AdminLteMvc.Models.UserViewModels>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+<div class="container-fluid">
+@using (Html.BeginForm())
+{
+    <div class="form-group form-inline">
+        <div class="form-group">
+            <div>
+                <p class="text-info">Nombre de Usuario</p>
+            </div>
+            <input type="text" placeholder="" id="card" name="user" class="form-control" />
+        </div>
+        <div class="form-group">
+            <div>
+                <p class="text-info">Rol</p>
+            </div>
+            @Html.DropDownList("Role", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <div>
+                <p class="text-info">Acciones</p>
+            </div>
+            <button type="submit" class="btn btn-default" aria-label="Left Align">
+                <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+                Filtrar
+            </button>
+            @Html.ActionLink("Limpiar Filtro", "Index", "Attachments", htmlAttributes: new { @class = "btn btn-default" })
+        </div>
+
+    </div>
+}
+<p>
+    @Html.ActionLink("Crear nuevo", "Register","Account", htmlAttributes: new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Employee)
+        </th>
+        <th>
+            Usuario de Red
+        </th>
+        <th>
+            Rol Asignado
+            </th>
+        <th>
+           
+        </th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)            
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.FirstOrDefault().Name)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.Id }, htmlAttributes: new {@class="btn btn-primary" }) |
+                @Html.ActionLink("Editar Rol", "Roles", new { id=item.Id }, htmlAttributes: new {@class= "btn btn-default" }) |
+                @Html.ActionLink("Eliminar", "Delete","Account", new { id=item.Id },htmlAttributes: new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>

@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FTDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Attachments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="IdRequest" Type="int" Nullable="false" />
+    <Property Name="ByteContent" Type="varbinary(max)" />
+    <Property Name="ContentType" Type="nvarchar(max)" />
+    <Property Name="IdAttachmentType" Type="int" />
+  </EntityType>
+  <EntityType Name="AttachmentTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AuditTrails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PerformedBy" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Action" Type="nvarchar(max)" />
+    <Property Name="ActionMessage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Identifier" Type="nvarchar(max)" />
+    <Property Name="IdDirector" Type="int" />
+  </EntityType>
+  <EntityType Name="EmployeeGroups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEmployee" Type="int" Nullable="false" />
+    <Property Name="IdGroup" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Identification" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdSupervisor" Type="int" />
+    <Property Name="IdDepartment" Type="int" />
+  </EntityType>
+  <EntityType Name="FlowSteps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEmployee" Type="int" Nullable="false" />
+    <Property Name="StepNumber" Type="int" Nullable="false" />
+    <Property Name="StepName" Type="nvarchar(max)" />
+    <Property Name="IdFlowType" Type="int" Nullable="false" />
+    <Property Name="IsAttachmentNeed" Type="bit" Nullable="false" />
+    <Property Name="IsMatrixNeeded" Type="bit" Nullable="false" />
+    <Property Name="IsTransferNeed" Type="bit" Nullable="false" />
+    <Property Name="IsSupervisorNeed" Type="bit" Nullable="false" />
+    <Property Name="IsBuyersBlocker" Type="bit" Nullable="false" />
+    <Property Name="IdGroup" Type="int" />
+    <Property Name="IdAttachmentType" Type="int" />
+  </EntityType>
+  <EntityType Name="FlowTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ReasonToRejects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="RequestHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdRequest" Type="int" Nullable="false" />
+    <Property Name="DateApproval" Type="datetime" Nullable="false" />
+    <Property Name="IdEmployee" Type="int" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdStatus" Type="int" Nullable="false" />
+    <Property Name="IdFlowSteps" Type="int" Nullable="false" />
+    <Property Name="IdRejectReasons" Type="int" />
+  </EntityType>
+  <EntityType Name="Requests">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTo" Type="int" Nullable="false" />
+    <Property Name="IdFrom" Type="int" Nullable="false" />
+    <Property Name="Identifier" Type="nvarchar(max)" />
+    <Property Name="RequestType_Id" Type="int" />
+    <Property Name="IdRequestor" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar(max)" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="IdStatus" Type="int" Nullable="false" />
+    <Property Name="IdFlowType" Type="int" Nullable="false" />
+    <Property Name="IdFlowSteps" Type="int" Nullable="false" />
+    <Property Name="IsCompleted" Type="bit" Nullable="false" />
+    <Property Name="From_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="RequestTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Attachments_dbo_AttachmentTypes_IdAttachmentType">
+    <End Role="AttachmentTypes" Type="Self.AttachmentTypes" Multiplicity="0..1" />
+    <End Role="Attachments" Type="Self.Attachments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AttachmentTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attachments">
+        <PropertyRef Name="IdAttachmentType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Attachments_dbo_Requests_IdRequest">
+    <End Role="Requests" Type="Self.Requests" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Attachments" Type="Self.Attachments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requests">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attachments">
+        <PropertyRef Name="IdRequest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_EmployeeGroups_dbo_Employees_IdEmployee">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployeeGroups" Type="Self.EmployeeGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeGroups">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_EmployeeGroups_dbo_Groups_IdGroup">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployeeGroups" Type="Self.EmployeeGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeGroups">
+        <PropertyRef Name="IdGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Employees_dbo_Departments_IdDepartment">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="IdDepartment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Employees_dbo_Employees_IdSupervisor">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Employees1" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees1">
+        <PropertyRef Name="IdSupervisor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_FlowSteps_dbo_AttachmentTypes_IdAttachmentType">
+    <End Role="AttachmentTypes" Type="Self.AttachmentTypes" Multiplicity="0..1" />
+    <End Role="FlowSteps" Type="Self.FlowSteps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AttachmentTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FlowSteps">
+        <PropertyRef Name="IdAttachmentType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_FlowSteps_dbo_Employees_IdEmployee">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FlowSteps" Type="Self.FlowSteps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FlowSteps">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_FlowSteps_dbo_FlowTypes_IdFlowType">
+    <End Role="FlowTypes" Type="Self.FlowTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FlowSteps" Type="Self.FlowSteps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FlowTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FlowSteps">
+        <PropertyRef Name="IdFlowType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_FlowSteps_dbo_Groups_IdGroup">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="FlowSteps" Type="Self.FlowSteps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FlowSteps">
+        <PropertyRef Name="IdGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RequestHistories_dbo_Employees_IdEmployee">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RequestHistories" Type="Self.RequestHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequestHistories">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RequestHistories_dbo_FlowSteps_IdFlowSteps">
+    <End Role="FlowSteps" Type="Self.FlowSteps" Multiplicity="1" />
+    <End Role="RequestHistories" Type="Self.RequestHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FlowSteps">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequestHistories">
+        <PropertyRef Name="IdFlowSteps" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RequestHistories_dbo_ReasonToRejects_IdRejectReasons">
+    <End Role="ReasonToRejects" Type="Self.ReasonToRejects" Multiplicity="0..1" />
+    <End Role="RequestHistories" Type="Self.RequestHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReasonToRejects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequestHistories">
+        <PropertyRef Name="IdRejectReasons" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RequestHistories_dbo_Requests_IdRequest">
+    <End Role="Requests" Type="Self.Requests" Multiplicity="1" />
+    <End Role="RequestHistories" Type="Self.RequestHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requests">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequestHistories">
+        <PropertyRef Name="IdRequest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RequestHistories_dbo_Status_IdStatus">
+    <End Role="Status" Type="Self.Status" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RequestHistories" Type="Self.RequestHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequestHistories">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Requests_dbo_Departments_From_Id">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="From_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Requests_dbo_Departments_IdTo">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="IdTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Requests_dbo_Employees_IdRequestor">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="IdRequestor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Requests_dbo_FlowSteps_IdFlowSteps">
+    <End Role="FlowSteps" Type="Self.FlowSteps" Multiplicity="1" />
+    <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FlowSteps">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="IdFlowSteps" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Requests_dbo_FlowTypes_IdFlowType">
+    <End Role="FlowTypes" Type="Self.FlowTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FlowTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="IdFlowType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Requests_dbo_RequestTypes_RequestType_Id">
+    <End Role="RequestTypes" Type="Self.RequestTypes" Multiplicity="0..1" />
+    <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="RequestType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Requests_dbo_Status_IdStatus">
+    <End Role="Status" Type="Self.Status" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FTDModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Attachments" EntityType="Self.Attachments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AttachmentTypes" EntityType="Self.AttachmentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditTrails" EntityType="Self.AuditTrails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeGroups" EntityType="Self.EmployeeGroups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlowSteps" EntityType="Self.FlowSteps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlowTypes" EntityType="Self.FlowTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReasonToRejects" EntityType="Self.ReasonToRejects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestHistories" EntityType="Self.RequestHistories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestTypes" EntityType="Self.RequestTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Attachments_dbo_AttachmentTypes_IdAttachmentType" Association="Self.FK_dbo_Attachments_dbo_AttachmentTypes_IdAttachmentType">
+      <End Role="AttachmentTypes" EntitySet="AttachmentTypes" />
+      <End Role="Attachments" EntitySet="Attachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Attachments_dbo_Requests_IdRequest" Association="Self.FK_dbo_Attachments_dbo_Requests_IdRequest">
+      <End Role="Requests" EntitySet="Requests" />
+      <End Role="Attachments" EntitySet="Attachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_EmployeeGroups_dbo_Employees_IdEmployee" Association="Self.FK_dbo_EmployeeGroups_dbo_Employees_IdEmployee">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeeGroups" EntitySet="EmployeeGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_EmployeeGroups_dbo_Groups_IdGroup" Association="Self.FK_dbo_EmployeeGroups_dbo_Groups_IdGroup">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="EmployeeGroups" EntitySet="EmployeeGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Employees_dbo_Departments_IdDepartment" Association="Self.FK_dbo_Employees_dbo_Departments_IdDepartment">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Employees_dbo_Employees_IdSupervisor" Association="Self.FK_dbo_Employees_dbo_Employees_IdSupervisor">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employees1" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_FlowSteps_dbo_AttachmentTypes_IdAttachmentType" Association="Self.FK_dbo_FlowSteps_dbo_AttachmentTypes_IdAttachmentType">
+      <End Role="AttachmentTypes" EntitySet="AttachmentTypes" />
+      <End Role="FlowSteps" EntitySet="FlowSteps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_FlowSteps_dbo_Employees_IdEmployee" Association="Self.FK_dbo_FlowSteps_dbo_Employees_IdEmployee">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="FlowSteps" EntitySet="FlowSteps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_FlowSteps_dbo_FlowTypes_IdFlowType" Association="Self.FK_dbo_FlowSteps_dbo_FlowTypes_IdFlowType">
+      <End Role="FlowTypes" EntitySet="FlowTypes" />
+      <End Role="FlowSteps" EntitySet="FlowSteps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_FlowSteps_dbo_Groups_IdGroup" Association="Self.FK_dbo_FlowSteps_dbo_Groups_IdGroup">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="FlowSteps" EntitySet="FlowSteps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RequestHistories_dbo_Employees_IdEmployee" Association="Self.FK_dbo_RequestHistories_dbo_Employees_IdEmployee">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="RequestHistories" EntitySet="RequestHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RequestHistories_dbo_FlowSteps_IdFlowSteps" Association="Self.FK_dbo_RequestHistories_dbo_FlowSteps_IdFlowSteps">
+      <End Role="FlowSteps" EntitySet="FlowSteps" />
+      <End Role="RequestHistories" EntitySet="RequestHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RequestHistories_dbo_ReasonToRejects_IdRejectReasons" Association="Self.FK_dbo_RequestHistories_dbo_ReasonToRejects_IdRejectReasons">
+      <End Role="ReasonToRejects" EntitySet="ReasonToRejects" />
+      <End Role="RequestHistories" EntitySet="RequestHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RequestHistories_dbo_Requests_IdRequest" Association="Self.FK_dbo_RequestHistories_dbo_Requests_IdRequest">
+      <End Role="Requests" EntitySet="Requests" />
+      <End Role="RequestHistories" EntitySet="RequestHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RequestHistories_dbo_Status_IdStatus" Association="Self.FK_dbo_RequestHistories_dbo_Status_IdStatus">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="RequestHistories" EntitySet="RequestHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Requests_dbo_Departments_From_Id" Association="Self.FK_dbo_Requests_dbo_Departments_From_Id">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Requests_dbo_Departments_IdTo" Association="Self.FK_dbo_Requests_dbo_Departments_IdTo">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Requests_dbo_Employees_IdRequestor" Association="Self.FK_dbo_Requests_dbo_Employees_IdRequestor">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Requests_dbo_FlowSteps_IdFlowSteps" Association="Self.FK_dbo_Requests_dbo_FlowSteps_IdFlowSteps">
+      <End Role="FlowSteps" EntitySet="FlowSteps" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Requests_dbo_FlowTypes_IdFlowType" Association="Self.FK_dbo_Requests_dbo_FlowTypes_IdFlowType">
+      <End Role="FlowTypes" EntitySet="FlowTypes" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Requests_dbo_RequestTypes_RequestType_Id" Association="Self.FK_dbo_Requests_dbo_RequestTypes_RequestType_Id">
+      <End Role="RequestTypes" EntitySet="RequestTypes" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Requests_dbo_Status_IdStatus" Association="Self.FK_dbo_Requests_dbo_Status_IdStatus">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

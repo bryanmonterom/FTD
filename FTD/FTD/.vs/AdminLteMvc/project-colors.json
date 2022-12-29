@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a6e158b7-7262-42a1-9f4f-1e993470bc46": {
+      "ProjectGuid": "a6e158b7-7262-42a1-9f4f-1e993470bc46",
+      "DisplayName": "AdminLteMvc",
+      "ColorIndex": 0
+    },
+    "46d2be1f-6bfd-4061-b550-b20a382800a1": {
+      "ProjectGuid": "46d2be1f-6bfd-4061-b550-b20a382800a1",
+      "DisplayName": "FTIService",
+      "ColorIndex": 1
+    },
+    "f43d509f-4dcb-4fa7-8cde-6d5d87bf924d": {
+      "ProjectGuid": "f43d509f-4dcb-4fa7-8cde-6d5d87bf924d",
+      "DisplayName": "MailService2",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

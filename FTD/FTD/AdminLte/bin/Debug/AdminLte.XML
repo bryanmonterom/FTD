@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AdminLte</name>
+    </assembly>
+    <members>
+        <member name="T:AdminLte.AdminLte">
+            <summary>
+            A class for utility functions and methods in AdminLTE, especially around CSHTMLs
+            Include functinality such as transforming colors into Admin LTE (or Bootstrap) compatible css classes
+            NOTE: This isn't in a namespace to it's automatically available in CSHTML files
+            </summary>
+        </member>
+        <member name="T:AdminLte.AdminLte.Color">
+            <summary>
+            List of colors available for background and text elements in Admin LTE
+            https://almsaeedstudio.com/themes/AdminLTE/pages/UI/general.html
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.LightBlue">
+            <summary>
+            bg-light-blue
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Aqua">
+            <summary>
+            bg-aqua
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Blue">
+            <summary>
+            bg-blue
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Green">
+            <summary>
+            bg-green
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Yellow">
+            <summary>
+            bg-yellow
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Red">
+            <summary>
+            bg-red
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Gray">
+            <summary>
+            bg-gray
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Navy">
+            <summary>
+            bg-navy
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Teal">
+            <summary>
+            bg-teal
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Purple">
+            <summary>
+            bg-purple
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Orange">
+            <summary>
+            bg-orange
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Maroon">
+            <summary>
+            bg-maroon
+            </summary>
+        </member>
+        <member name="F:AdminLte.AdminLte.Color.Black">
+            <summary>
+            bg-black
+            </summary>
+        </member>
+        <member name="M:AdminLte.AdminLte.BackgroundClassForColor(AdminLte.AdminLte.Color)">
+            <summary>
+            A mapping of GoalColors into CSS classes
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Crumb">
+            <summary>
+            This class represents an individual piece of the breadcrumb at the top of the main content area of the page
+            Instances of this object must carry a text value and may optionally also carry a link and icon class
+            If the text value or icon are null or empty, then they are ignored
+            Instances of this class should be captured in the Breadcrumb collection class
+            </summary>
+        </member>
+        <member name="M:Crumb.#ctor">
+            <summary>
+            Default constructor that makes an empty crumb element
+            </summary>
+        </member>
+        <member name="M:Crumb.#ctor(System.String)">
+            <summary>
+            Constructor that makes a crumb element with the given text as title
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:Crumb.#ctor(System.String,System.String)">
+            <summary>
+            Constructor that makes a crumb element with the given text as title and other text as link
+            </summary>
+            <param name="text"></param>
+            <param name="link"></param>
+        </member>
+        <member name="M:Crumb.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor that builds a crumb element with title, link, and icon class values
+            </summary>
+            <param name="text"></param>
+            <param name="link"></param>
+            <param name="icon"></param>
+        </member>
+        <member name="P:Crumb.Text">
+            <summary>
+            Gets or sets the Text displayed as the value of this crumb
+            </summary>
+        </member>
+        <member name="P:Crumb.HasText">
+            <summary>
+            Gets true if the Text property has anything in it; otherwise, returns false
+            </summary>
+        </member>
+        <member name="P:Crumb.Link">
+            <summary>
+            Gets or sets the Link value for this crumb element
+            This is usually a value from Url.Action for the crumb's action
+            </summary>
+        </member>
+        <member name="P:Crumb.HasLink">
+            <summary>
+            Gets true if the link text has a value; otherwise, returns false
+            </summary>
+        </member>
+        <member name="P:Crumb.Icon">
+            <summary>
+            Gets or sets the icon class for this crumb element
+            This is usually a font awesome class like "fa-check"
+            </summary>
+        </member>
+        <member name="P:Crumb.HasIcon">
+            <summary>
+            Gets true if there icon property has a value in it; otherwise, returns false
+            </summary>
+        </member>
+        <member name="T:Breadcrumb">
+            <summary>
+            A full breadcrumb is just a list of crumbs that can then be translated into an AdminLTE breadcrumb using cshtml
+            </summary>
+        </member>
+        <member name="M:Breadcrumb.#ctor(System.Collections.Generic.IEnumerable{Crumb})">
+            <summary>
+            Constructor that creates a new Breadcrumb collection for the given enumerable of crumbs
+            </summary>
+            <param name="crumbs"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3a5c4e56dd4a4316a29add58865c408d" Name="Diagram1">
+        <EntityTypeShape EntityType="FTDModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.AspNetUsers" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.Attachments" Width="1.5" PointX="15.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.AttachmentTypes" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.AuditTrails" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.Departments" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.EmployeeGroups" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.Employees" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.FlowSteps" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.FlowTypes" Width="1.5" PointX="6" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.Groups" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.ReasonToRejects" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.RequestHistories" Width="1.5" PointX="10.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.Requests" Width="1.5" PointX="13.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.RequestTypes" Width="1.5" PointX="11.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FTDModel.Status" Width="1.5" PointX="11.25" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="FTDModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Attachments_dbo_AttachmentTypes_IdAttachmentType" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Attachments_dbo_Requests_IdRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_FlowSteps_dbo_AttachmentTypes_IdAttachmentType" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Employees_dbo_Departments_IdDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Requests_dbo_Departments_From_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Requests_dbo_Departments_IdTo" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_EmployeeGroups_dbo_Employees_IdEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_EmployeeGroups_dbo_Groups_IdGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Employees_dbo_Employees_IdSupervisor" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_FlowSteps_dbo_Employees_IdEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_RequestHistories_dbo_Employees_IdEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Requests_dbo_Employees_IdRequestor" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_FlowSteps_dbo_FlowTypes_IdFlowType" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_FlowSteps_dbo_Groups_IdGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_RequestHistories_dbo_FlowSteps_IdFlowSteps" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Requests_dbo_FlowSteps_IdFlowSteps" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Requests_dbo_FlowTypes_IdFlowType" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_RequestHistories_dbo_ReasonToRejects_IdRejectReasons" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_RequestHistories_dbo_Requests_IdRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_RequestHistories_dbo_Status_IdStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Requests_dbo_RequestTypes_RequestType_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.FK_dbo_Requests_dbo_Status_IdStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="FTDModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

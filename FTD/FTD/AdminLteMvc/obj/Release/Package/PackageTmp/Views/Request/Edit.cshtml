@@ -1,0 +1,133 @@
+﻿@model AdminLteMvc.Models.Request
+
+@{
+    ViewBag.Title = "Editar Solicitudes";
+}
+
+
+<div class="container-fluid">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Solicitudes</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdFlowType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdFlowType", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.IdFlowType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdTo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdTo", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.IdTo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdFrom, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdFrom", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.IdFrom, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Identifier, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Identifier, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Identifier, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdRequestor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdRequestor", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.IdRequestor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @placeholder = "Ponga un mensaje ...", @rows = "5" })
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.HiddenFor(a => a.IdStatus)
+        @Html.HiddenFor(a => a.IdFlowType)
+        @Html.HiddenFor(a => a.IdFlowSteps)
+        @Html.HiddenFor(a => a.IsCompleted)
+        @Html.HiddenFor(a => a.LastModified)
+        @Html.HiddenFor(a => a.Date)
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="@Url.Action("Upload","Attachments", new {@id= Model.Id })" class="btn btn-default">
+                    <i class="fa fa-paperclip"></i>
+                    <span>Agregar Adjuntos</span>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+
+        <div class="form-group form-inline">
+            <div class="form-group">
+                <a href="@Url.Action("Index","RequestHistories", new {@request= Model.Id, @Approvals = 0, @IdStatus = (int)AdminLteMvc.Utilities.Status.Pending })" class="btn btn-default">
+                    <i class="fa fa-check-circle"></i>
+                    <span>Volver a Aprobaciones</span>
+                </a>
+            </div>
+            <div class="form-group">
+                <a href="@Url.Action("Index", "Attachments", new {@IdRequestd = Model.Id})" class="btn btn-default">
+                    <i class="fa fa-book"></i>
+                    <span>Ver archivos existentes</span>
+                </a>
+            </div>
+            <div class="form-group">
+                <a href="@Url.Action("Generate", "Reports", new {@id = Model.Id})" class="btn btn-default">
+                    <i class="fa fa-line-chart"></i>
+                    <span>Generar Reporte</span>
+                </a>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </div>
+
+    }
+
+    <div>
+        @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
