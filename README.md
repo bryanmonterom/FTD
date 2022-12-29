@@ -26,27 +26,27 @@ The FTI Digital web application aims to improve the way in which interdepartment
 ## Screenshots
 
 ### Home
-![Home](https://github.com/bryanmonterom/FTD/blob/main/Desktop/FTD/FTD/FTD/Images/Home.jpg?raw=true)
+![Home](https://github.com/bryanmonterom/FTD/blob/main/FTD/FTD/Images/Home.jpg?raw=true)
 
 
 ### Create new approval step
-![AddProject](https://github.com/bryanmonterom/FTD/blob/main/Desktop/FTD/FTD/FTD/Images/CrearFlujos.jpg?raw=true)
+![AddProject](https://github.com/bryanmonterom/FTD/blob/main/FTD/FTD/Images/CrearFlujos.jpg?raw=true)
 
 ### Approvers groups configuration
-![DetailsOfATask](https://github.com/bryanmonterom/FTD/blob/main/Desktop/FTD/FTD/FTD/Images/ManejoGrupos.jpg?raw=true)
+![DetailsOfATask](https://github.com/bryanmonterom/FTD/blob/main/FTD/FTD/Images/ManejoGrupos.jpg?raw=true)
 
 
 ### Employees configuration
-![AddProject](https://github.com/bryanmonterom/FTD/blob/main/Desktop/FTD/FTD/FTD/Images/EmployeesSignature.jpg?raw=true)
+![AddProject](https://github.com/bryanmonterom/FTD/blob/main/FTD/FTD/Images/EmployeesSignature.jpg?raw=true)
 
 ### Edit request
-![AddProject](https://github.com/bryanmonterom/FTD/blob/main/Desktop/FTD/FTD/FTD/Images/Solicitudes.jpg?raw=true)
+![AddProject](https://github.com/bryanmonterom/FTD/blob/main/FTD/FTD/Images/Solicitudes.jpg?raw=true)
 
 ### Request status
-![DetailsOfATask](https://github.com/bryanmonterom/FTD/blob/main/Desktop/FTD/FTD/FTD/Images/EstatusSolicitudes.jpg?raw=true)
+![DetailsOfATask](https://github.com/bryanmonterom/FTD/blob/main/FTD/FTD/Images/EstatusSolicitudes.jpg?raw=true)
 
 ### Request report
-![DetailsOfATask](https://github.com/bryanmonterom/FTD/blob/main/Desktop/FTD/FTD/FTD/Images/ReporteSolicitudes.jpg?raw=true)
+![DetailsOfATask](https://github.com/bryanmonterom/FTD/blob/main/FTD/FTD/Images/ReporteSolicitudes.jpg?raw=true)
 
 
 
